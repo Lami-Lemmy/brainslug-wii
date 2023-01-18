@@ -32,21 +32,21 @@ static void vpKamekLoader()
     {
         MountSDCard();
     }
-    static FILE_STRUCT fd;
-    ret = SD_open(&fd, loaderPath, O_RDONLY);
+    static FILE_STRUCT fs;
+    ret = SD_open(&fs, loaderPath, O_RDONLY);
     // Error out if we cannot open the loader
     if (ret == -1)
     {
         printf("Could not open the loader");
     }
-    int loaderSize = SD_read((int)&fd, (char)0x80004000, fd.filesize);
+    int loaderSize = SD_read(&fs, 0x80004000, fs.filesize);
     // Error out if we cannot read the loader
     if (loaderSize == -1)
     {
         printf("Could not read the loader");
     }
     // Close the file
-    SD_close((int)&fd);
+    SD_close(&fs);
 
 
     // Insert branch to the loader
