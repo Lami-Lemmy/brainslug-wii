@@ -17,6 +17,7 @@ BSLUG_MODULE_LICENSE("MIT");
 #define loaderPath "sd:/varietypack/boot/loader.bin" // Path to the loader
 int ret;
 bool mounted;
+void _start();
 
 static int MountSDCard()
 {
@@ -74,7 +75,7 @@ static void vpKamekLoader()
             ;
     }
 
-    return;
+    _start();
 }
 
 
