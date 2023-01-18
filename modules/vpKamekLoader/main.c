@@ -78,4 +78,4 @@ static void vpKamekLoader()
 }
 
 
-BSLUG_MUST_REPLACE(SystemManager_loadSymbols, vpKamekLoader);
+BSLUG_MUST_REPLACE(_start, vpKamekLoader);
